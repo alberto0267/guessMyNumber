@@ -11,18 +11,9 @@ let score = document.querySelector('.score');
 let reset = document.querySelector('.again');
 let highscore = document.querySelector('.highscore');
 let highscores = 0;
-// // document.querySelector('.message');
+let check = document.querySelector('.check');
 
-// console.log(document.querySelector('.message').textContent);
-// document.querySelector('.message').textContent = 'Acertaste😎👍';
-
-// // document.querySelector('.number').textContent = 13;
-// document.querySelector('.score').textContent = 0;
-
-// document.querySelector('.guess').value = 10;
-// console.log(document.querySelector('.guess').value);
-
-document.querySelector('.check').addEventListener('click', () => {
+const handleGame = () => {
   const guessNumber = Number(document.querySelector('.guess').value);
   console.log(typeof guessNumber);
 
@@ -58,6 +49,10 @@ document.querySelector('.check').addEventListener('click', () => {
       message.textContent = 'Perdiste 😂';
     }
   }
+};
+
+check.addEventListener('click', () => {
+  handleGame();
 });
 
 reset.addEventListener('click', () => {
@@ -67,4 +62,10 @@ reset.addEventListener('click', () => {
   root.style.backgroundColor = 'black';
   score.textContent = 20;
   scoreInitial = 20;
+});
+
+document.addEventListener('keydown', event => {
+  if (event.key === 'Enter') {
+    handleGame();
+  }
 });
