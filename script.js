@@ -32,6 +32,7 @@ document.querySelector('.check').addEventListener('click', () => {
     document.querySelector('.message').textContent = 'Debe ser un numero 🫠';
   } else if (guessNumber === numberSecret) {
     message.textContent = 'Acertaste😎👍';
+    root.style.backgroundColor = 'green';
 
     if (scoreInitial > highscores) {
       console.log('entra en if ' + scoreInitial);
@@ -63,5 +64,7 @@ reset.addEventListener('click', () => {
   console.log('entra en reset');
   numberSecret = Math.trunc(Math.random() * 30 + 1);
   // number.textContent = numberSecret;
+  root.style.backgroundColor = 'black';
+  score.textContent = 20;
   scoreInitial = 20;
 });
